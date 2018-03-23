@@ -1,3 +1,3 @@
 <?php
 
-echo "Say Hi to my first app :)";
+require_once "core/bootstrap.php";
