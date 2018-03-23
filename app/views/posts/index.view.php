@@ -5,6 +5,6 @@
     <title>Document</title>
 </head>
 <body>
-    Hi there from the view :)
+    Imagine that there are many posts rendered here ="D
 </body>
 </html>

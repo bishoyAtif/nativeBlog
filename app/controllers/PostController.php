@@ -1,10 +1,10 @@
 <?php
 
-class HomeController
+class PostController
 {
     public function index()
     {
-        require_once "app/views/home.view.php";
+        require_once "app/views/posts/index.view.php";
     }
 
     public function create()
