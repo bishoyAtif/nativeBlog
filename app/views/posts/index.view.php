@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Recent Posts</title>
 </head>
 <body>
-    Imagine that there are many posts rendered here ="D
+    <?php foreach ($posts as $post) { ?>
+        <h2><?php echo $post-> title; ?></h2>
+        <p><?php echo $post->content ?></p>
+        <hr>
+    <?php } ?>
 </body>
 </html>
