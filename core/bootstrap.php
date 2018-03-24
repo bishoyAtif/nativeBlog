@@ -2,7 +2,9 @@
 
 require_once "core/App.php";
 require_once "core/Router.php";
+require_once "core/DB.php";
 App::bind('router', new Router);
+App::bind('database', DB::connect(config('db')));
 $router = App::get('router');
 require_once "routes.php";
 
