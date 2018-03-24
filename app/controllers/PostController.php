@@ -11,4 +11,9 @@ class PostController
     {
         require_once "app/views/posts/create.view.php";
     }
+
+    public function store()
+    {
+        echo "Stored !";
+    }
 }
