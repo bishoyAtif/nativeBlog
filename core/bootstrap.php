@@ -1,7 +1,9 @@
 <?php
 
+require_once "core/App.php";
 require_once "core/Router.php";
-$router = new Router;
+App::bind('router', new Router);
+$router = App::get('router');
 require_once "routes.php";
 
 $routeData = $router->resolveUrl();
