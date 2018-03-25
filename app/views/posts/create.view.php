@@ -5,9 +5,21 @@
     <title>Add Post</title>
 </head>
 <body>
-    <form action="/posts" method="POST">
-        <input type="submit">
-    </form>
-    Please Think wisely before writing a post. It would be better if you don't write one at all.
+    <fieldset>
+        <legend>Add Post</legend>
+        <form action="/posts" method="POST">
+            <div>
+                <label for="title">Title</label>
+                <input id="title" type="text" name="title" value=""><br>
+            </div>
+            <div>
+                <label for="content">Content</label><br>
+                <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <input type="submit">
+            </div>
+        </form>
+    </fieldset>
 </body>
 </html>
