@@ -2,6 +2,7 @@
 
 require_once "core/App.php";
 require_once "core/Router.php";
+require_once "core/Request.php";
 require_once "core/DB.php";
 require_once "core/Model.php";
 require_once "app/models/Post.php";
