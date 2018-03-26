@@ -13,7 +13,7 @@ class Router
     public function post($uri, $controllerName)
     {
         $uriRegex = $this->uriRegex($uri);
-        $this->routes['POST'][$uri] = $this->resolveControllerName($controllerName);
+        $this->routes['POST'][$uriRegex] = $this->resolveControllerName($controllerName);
     }
 
     public function resolveUrl()
