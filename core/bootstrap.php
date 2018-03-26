@@ -16,5 +16,5 @@ $controllerName = $routeData['controller'];
 $methodName = $routeData['method'];
 require_once "app/controllers/" . $controllerName . ".php";
 $controller = new $controllerName;
-$controller->$methodName();
+$controller->$methodName(Request::get('id'));
 
