@@ -28,3 +28,8 @@ function config($key = null)
 
     return $requiredConfig;
 }
+
+function asset($relativePath = "")
+{
+    return 'http://' . $_SERVER['HTTP_HOST'] . '/' . $relativePath;
+}
