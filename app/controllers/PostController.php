@@ -22,7 +22,25 @@ class PostController
     public function store()
     {
         $this->posts->create(Request::only(['title', 'content']));
-        header('Location: http://localhost:8000/posts');
+        header('Location: '. baseUrl('posts'));
+        exit;
+    }
+
+    public function edit($id)
+    {
+        $post = $this->posts->find($id);
+
+        if (!$post) {
+            throw new Exception("Error 404");
+        }
+
+        require_once "app/views/posts/edit.view.php";
+    }
+
+    public function update()
+    {
+        $this->posts->update(Request::only(['id', 'title', 'content']));
+        header('Location: '. route('posts'));
         exit;
     }
 }
