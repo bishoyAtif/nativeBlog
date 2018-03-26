@@ -21,6 +21,8 @@ class PostController
 
     public function store()
     {
-        echo "Stored !";
+        $this->posts->create(Request::only(['title', 'content']));
+        header('Location: http://localhost:8000/posts');
+        exit;
     }
 }

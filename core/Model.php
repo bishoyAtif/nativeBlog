@@ -17,4 +17,15 @@ class Model
         
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function create($fields = [])
+    {
+        $formattedFieldNames = implode(", ", array_keys($fields));
+        $formattedPlaceHolders = implode(", ", array_map(function($e){
+            return ':' . $e;
+        }, array_keys($fields)));
+        
+        $query = $this->db->prepare("INSERT INTO {$this->table}({$formattedFieldNames}) VALUES({$formattedPlaceHolders})");
+        $query->execute($fields);
+    }
 }
