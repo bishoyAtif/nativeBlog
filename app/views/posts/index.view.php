@@ -5,9 +5,11 @@
     <title>Recent Posts</title>
 </head>
 <body>
+	<a href="<?= route('posts/create') ?>">Add Post</a>
     <?php foreach ($posts as $post) { ?>
-        <h2><?php echo $post-> title; ?></h2>
-        <p><?php echo $post->content ?></p>
+        <h2><a href="<?= route('posts/' . $post->id) ?>"><?= $post->title ?></a></h2>
+        <p><?= $post->content ?></p>
+        <a href="<?= route('posts/' . $post->id . '/edit') ?>">Edit Post</a>
         <hr>
     <?php } ?>
 </body>
