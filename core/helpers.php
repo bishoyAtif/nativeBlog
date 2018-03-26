@@ -31,5 +31,15 @@ function config($key = null)
 
 function asset($relativePath = "")
 {
-    return 'http://' . $_SERVER['HTTP_HOST'] . '/' . $relativePath;
+    return baseUrl() . "public/" . $relativePath;
+}
+
+function route($relativePath = "")
+{
+    return baseUrl() . $relativePath;
+}
+
+function baseUrl()
+{
+    return 'http://' . $_SERVER['HTTP_HOST'] . '/';
 }
