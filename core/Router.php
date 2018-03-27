@@ -43,7 +43,7 @@ class Router
     // Getting the URI ready to be Regex-ed
     private function uriRegex($uri = "")
     {
-        $uri = "/^" . str_replace('/', '\/', $uri) . "$/";
+        $uri = "/^" . str_replace('/', '\/', $uri) . "(\?.+)?$/";
         return str_replace('*', '([1-9]+)', $uri);
     }
 }
