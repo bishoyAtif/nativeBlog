@@ -1,6 +1,7 @@
 <?php
 
 require_once 'vendor/autoload.php';
+require_once 'core/helpers.php';
+require_once 'AppServiceContainer.php';
 
-App::bind('database', DB::connect(config('db')));
 (new Router)->loadRoutes()->direct();
