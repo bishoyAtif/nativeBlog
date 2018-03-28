@@ -4,16 +4,33 @@ class Router
 {
     private $routes = ['GET' => [], 'POST' => []];
 
-    public function get($uri, $controllerName)
+    public function loadRoutes()
     {
-        $uriRegex = $this->uriRegex($uri);
-        $this->routes['GET'][$uriRegex] = $this->resolveControllerName($controllerName);
+        require_once "routes.php";
+        return $this;
     }
 
-    public function post($uri, $controllerName)
+    public function direct()
+    {
+        $routeData = $this->resolveUrl();
+        $this->callAction(...$routeData);
+    }
+
+    private function callAction($controller, $method)
+    {
+        (new $controller)->$method(Request::get('id'));
+    }
+
+    public function get($uri, $action)
     {
         $uriRegex = $this->uriRegex($uri);
-        $this->routes['POST'][$uriRegex] = $this->resolveControllerName($controllerName);
+        $this->routes['GET'][$uriRegex] = $action;
+    }
+
+    public function post($uri, $action)
+    {
+        $uriRegex = $this->uriRegex($uri);
+        $this->routes['POST'][$uriRegex] = $action;
     }
 
     public function resolveUrl()
@@ -27,17 +44,11 @@ class Router
                 if (array_key_exists(1, $matches)) {
                     $_REQUEST['id'] = $matches[1];
                 }
-                return $action;
+                return explode('@', $action);
             }
         }
 
         throw new Exception("Error 404");
-    }
-
-    protected function resolveControllerName($routeToController)
-    {
-        $resolvedName = explode('@', $routeToController);
-        return ['controller' => $resolvedName[0], 'method' => $resolvedName[1]];
     }
 
     // Getting the URI ready to be Regex-ed
