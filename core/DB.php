@@ -1,5 +1,9 @@
 <?php
 
+namespace Core;
+
+use PDO;
+
 class DB
 {
     public static function connect($dbConfig)

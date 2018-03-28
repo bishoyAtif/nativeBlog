@@ -1,5 +1,7 @@
 <?php
 
+namespace Core;
+
 class Router
 {
     private $routes = ['GET' => [], 'POST' => []];
@@ -18,7 +20,8 @@ class Router
 
     private function callAction($controller, $method)
     {
-        (new $controller)->$method(Request::get('id'));
+        $fullControllerPath = "\\App\\Controllers\\" . $controller;
+        (new $fullControllerPath)->$method(Request::get('id'));
     }
 
     public function get($uri, $action)

@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Controllers;
+
+use App\Models\Post;
+use Core\Request;
+
 class PostController
 {
     public function __construct()

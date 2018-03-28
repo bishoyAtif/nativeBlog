@@ -1,5 +1,7 @@
 <?php
 
+use Core\Router;
+
 Router::get('/', 'HomeController@index');
 
 Router::get('/posts', 'PostController@index');
