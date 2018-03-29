@@ -3,9 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\Post;
-use Core\Request;
+use Core\{Request, Controller};
 
-class PostController
+class PostController extends Controller
 {
     public function __construct()
     {
@@ -16,7 +16,7 @@ class PostController
     {
         $posts = $this->posts->all();
         
-        require_once "app/views/posts/index.view.php";
+        $this->render("posts.index", compact("posts"));
     }
 
     public function show($id)
@@ -26,17 +26,18 @@ class PostController
             throw new Exception("Error 404");
         }
 
-        require_once 'app/views/posts/show.view.php';
+        $this->render("posts.show", compact("post"));
     }
 
     public function create()
     {
-        require_once "app/views/posts/create.view.php";
+        $this->render("posts.create");
     }
 
     public function store()
     {
         $this->posts->create(Request::only(['title', 'content']));
+
         header('Location: '. route('posts'));
         exit;
     }
@@ -49,12 +50,13 @@ class PostController
             throw new Exception("Error 404");
         }
 
-        require_once "app/views/posts/edit.view.php";
+        $this->render("posts.edit", compact("post"));
     }
 
     public function update()
     {
         $this->posts->update(Request::only(['id', 'title', 'content']));
+        
         header('Location: '. route('posts'));
         exit;
     }

@@ -2,10 +2,12 @@
 
 namespace App\Controllers;
 
-class HomeController
+use Core\Controller;
+
+class HomeController extends Controller
 {
     public function index()
     {
-        require_once "app/views/home.view.php";
+        $this->render("home");
     }
 }
