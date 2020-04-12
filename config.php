@@ -2,9 +2,9 @@
 
 return [
     'db' => [
-        'name' => 'nativeBlog',
+        'name' => 'native_blog',
         'host' => 'localhost',
-        'password' => '',
+        'password' => 'secret',
         'user' => 'root'
     ],
 ];
