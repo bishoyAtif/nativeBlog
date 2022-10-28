@@ -31,7 +31,6 @@ class PostController extends Controller
 
         $post = $postRepository->find($id);
 
-        // $post = $this->posts->find($id);
         if (!$post) {
             throw new Exception("Error 404");
         }
@@ -52,7 +51,6 @@ class PostController extends Controller
         $post->setContent(Request::get('content'));
         $em->persist($post);
         $em->flush();
-        // $this->posts->create(Request::only(['title', 'content']));
 
         header('Location: ' . route('posts'));
         exit;

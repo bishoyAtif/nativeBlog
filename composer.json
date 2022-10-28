@@ -1,7 +1,8 @@
 {
     "require": {
         "doctrine/orm": "^2.6.2",
-        "symfony/yaml": "2.*"
+        "symfony/yaml": "2.*",
+        "doctrine/migrations": "^2.2"
     },
     "autoload": {
         "classmap": [
